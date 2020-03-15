@@ -23,7 +23,9 @@ class CoinContainer extends Component {
         this.setState(oldState => {
           return {
             currCoin: newCoin,
-            nFlips: oldState.nFlips + 1
+            nFlips: oldState.nFlips + 1,
+            nHeads: oldState.nHeads + (newCoin.side === "heads" ? 1 : 0),
+            nTails: oldState.nTails + (newCoin.side === "tails" ? 1 : 0)
           };
         });
       }
