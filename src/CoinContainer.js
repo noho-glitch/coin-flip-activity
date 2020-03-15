@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
+import { choice } from './helpers'
 
 class CoinContainer extends Component {
-    static defaultPros = {
+    static defaultProps = {
         coins: [
             { side: "heads", imgSrc: "https://tinyurl.com/react-coin-heads-jpg" },
             { side: "tails", imgSrc: "https://tinyurl.com/react-coin-tails-jpg" }
@@ -17,10 +18,15 @@ class CoinContainer extends Component {
         }
         this.handleClick = this.handleClick.bind(this)
     }
-    flipCoin(){
-
-    }
-    
+    flipCoin() {
+        const newCoin = choice(this.props.coins);
+        this.setState(oldState => {
+          return {
+            currCoin: newCoin,
+            nFlips: oldState.nFlips + 1
+          };
+        });
+      }
     handleClick(e) {
         this.flipCoin();
     }
