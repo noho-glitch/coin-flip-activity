@@ -1,5 +1,5 @@
 {
-  "homepage": "http://gitname.github.io/react-gh-pages",
+  "homepage": "http://noho-.github.io/react-gh-pages",
   "name": "coin-flip",
   "version": "0.1.0",
   "private": true,
@@ -12,6 +12,8 @@
     "react-scripts": "3.4.0"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
