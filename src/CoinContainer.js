@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import { choice } from './helpers'
+import Coin from './Coin'
 
 class CoinContainer extends Component {
     static defaultProps = {
         coins: [
-            { side: "heads", imgSrc: "https://tinyurl.com/react-coin-heads-jpg" },
-            { side: "tails", imgSrc: "https://tinyurl.com/react-coin-tails-jpg" }
+            { side: "heads", imgSrc: "https://www.usmint.gov/wordpress/wp-content/uploads/2020/01/2020-roosevelt-dime-uncirculated-obverse-denver-300x300.jpg" },
+            { side: "tails", imgSrc: "https://www.usmint.gov/wordpress/wp-content/uploads/2020/01/2020-roosevelt-dime-uncirculated-reverse-300x300.jpg" }
         ]
     };
     constructor(props) {
@@ -37,6 +38,7 @@ class CoinContainer extends Component {
           <div className='CoinContainer'>
             <h2>Let's Flip A Coin!</h2>
             <button onClick={this.handleClick}>Flip the coin!</button>
+            {this.state.currCoin && <Coin info={this.state.currCoin} />}
             <p>
               Out of {this.state.nFlips} flips, there have been {this.state.nHeads}{" "}
               heads and {this.state.nTails} tails.
